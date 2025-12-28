@@ -25,7 +25,8 @@ namespace SpaceShip
         [Space(10)]
         [Header("----GamePlay Setting----")]
         [SerializeField] float levelUpTime = 20f;
-        [SerializeField] float spawnRockTime = 1.5f;
+        [SerializeField] float spawnRockTime = 3f;
+        [SerializeField] float offsetSpawnRockTime = 0.5f;
         [SerializeField] float verticalMoveRock = 0.3f;
         [SerializeField] float[] multipleSpeed = new float[4];
 
@@ -88,6 +89,8 @@ namespace SpaceShip
 
             blurScreen.SetActive(true);
             startPanel.SetActive(true);
+            pausePanel.SetActive(true);
+            gameOverPanel.SetActive(true);
             //pausePanel.SetActive(false);
             //gameOverPanel.SetActive(false);
             lvlUpImage.gameObject.SetActive(false);
@@ -183,7 +186,6 @@ namespace SpaceShip
                 startPanel.SetActive(true);
                 ResetRockAndSkill();
                 ResetBackGround();
-                CancelInvoke(nameof(LevelUp));
                 score = 0;
                 currentLevel = Level.Easy;
 
@@ -244,6 +246,7 @@ namespace SpaceShip
         {
             Time.timeScale = 0;
             CancelInvoke(nameof(SpawnRock));
+            CancelInvoke(nameof(LevelUp));
 
             pauseButton.SetActive(false);
             scoreText.gameObject.SetActive(false);
@@ -262,8 +265,8 @@ namespace SpaceShip
             {
                 PlayerPrefs.SetFloat("HighestScore", score);
             }
-            highestScore.text = "Highest Time : " + Mathf.Round(PlayerPrefs.GetFloat("HighestScore", 0) * 100f) / 100f;
-            finalScore.text = "Your Time : " + Mathf.Round(score * 100f) / 100f;
+            highestScore.text = "Highest : " + (Mathf.Round(PlayerPrefs.GetFloat("HighestScore", 0) * 100f) / 100f) + "s";
+            finalScore.text = "Your Time : " + (Mathf.Round(score * 100f) / 100f) + "s";
 
             Sequence seq = DOTween.Sequence().SetUpdate(true);
             seq.AppendInterval(0.8f);
@@ -347,7 +350,7 @@ namespace SpaceShip
             if (currentLevel < Level.Hard) return;
 
             // Tỉ lệ xuất hiện skill 30%
-            if (UnityEngine.Random.Range(0, 10) > 2) return;
+            //if (UnityEngine.Random.Range(0, 10) > 2) return;
 
             Transform inactivePool = skillPoolObject.GetChild(0).GetChild(1);
             GameObject skill;
@@ -375,7 +378,7 @@ namespace SpaceShip
             if (currentLevel != Level.Extreme) return;
 
             // Tỉ lệ xuất hiện invert 30%
-            if (UnityEngine.Random.Range(0, 10) > 2) return;
+            //if (UnityEngine.Random.Range(0, 10) > 2) return;
 
             Transform inactivePool = skillPoolObject.GetChild(1).GetChild(1);
             GameObject invert;
@@ -396,7 +399,6 @@ namespace SpaceShip
 
         private void LevelUp()
         {
-
             // Tăng độ khó của trò chơi
             // Nếu đã đạt đến mức độ khó cao nhất thì không tăng nữa
             if (currentLevel == Level.Extreme) return;
@@ -412,20 +414,22 @@ namespace SpaceShip
             seq.Append(DOVirtual.DelayedCall(spawnRockTime * 2, () =>
             {
                 currentLevel++;
-                spawnRockTime -= 0.15f;
+                spawnRockTime -= offsetSpawnRockTime;
                 Debug.Log("Level Up to " + currentLevel.ToString());
                 lvlUpImage.gameObject.SetActive(true);
 
                 if (currentLevel == Level.Hard)
                 {
                     // Bắt đầu spawn skill bất tử từ level Hard
-                    Invoke(nameof(SpawnInvincibleSkill), UnityEngine.Random.Range(5f, 15f));
+                    Debug.Log("Start spawning Invincible Skill");
+                    Invoke(nameof(SpawnInvincibleSkill), UnityEngine.Random.Range(0f, 10f));
                 }
 
                 if (currentLevel == Level.Extreme)
                 {
                     // Bắt đầu spawn skill đảo ngược điều khiển từ level Extreme
-                    Invoke(nameof(SpawnInvertControl), UnityEngine.Random.Range(10f, 20f));
+                    Debug.Log("Start spawning Invert Control Skill");
+                    Invoke(nameof(SpawnInvertControl), UnityEngine.Random.Range(5f, 15f));
                 }
             }, false));
             seq.Append(lvlUpImage.DOFade(0.5f, 0.35f).SetLoops(6, LoopType.Yoyo));

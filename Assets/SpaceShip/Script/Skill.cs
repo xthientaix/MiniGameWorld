@@ -36,18 +36,6 @@ namespace SpaceShip
             }
         }
 
-        private void OnDisable()
-        {
-            if (skillType == SkillType.Invincible)
-            {
-                transform.SetParent(poolObject.GetChild(0).GetChild(1));
-            }
-            else
-            {
-                transform.SetParent(poolObject.GetChild(1).GetChild(1));
-            }
-        }
-
         private void FixedUpdate()
         {
             // Di chuyển object sang trái
@@ -64,6 +52,15 @@ namespace SpaceShip
         {
             if (collision.CompareTag("Player"))
             {
+                if (skillType == SkillType.Invincible)
+                {
+                    transform.SetParent(poolObject.GetChild(0).GetChild(1));
+                }
+                else
+                {
+                    transform.SetParent(poolObject.GetChild(1).GetChild(1));
+                }
+
                 // Ẩn object
                 gameObject.SetActive(false);
             }
