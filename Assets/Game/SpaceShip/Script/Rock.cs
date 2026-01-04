@@ -10,6 +10,7 @@ namespace SpaceShip
         const float verticalSpeed = 0.5f;
         float[] verticalMoveRange = new float[2];
         const float verticalOffsetPos = 0.2f;
+        const float horizontalOffsetPos = 2f;
 
         private int verticalMoveState;
         Vector2 newPos;
@@ -30,7 +31,7 @@ namespace SpaceShip
         public void Init(Vector3 pos, Level level, float verticalMove, float multipleSpeed)
         {
             this.level = level;
-            transform.position = pos + new Vector3(0, Random.Range(-verticalOffsetPos, verticalOffsetPos), 0);
+            transform.position = pos + new Vector3(Random.Range(-horizontalOffsetPos, horizontalOffsetPos), Random.Range(-verticalOffsetPos, verticalOffsetPos));
 
             speed = defaultSpeed * multipleSpeed;
 

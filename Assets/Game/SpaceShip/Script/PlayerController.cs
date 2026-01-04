@@ -59,14 +59,8 @@ namespace SpaceShip
         {
             predictPos = transform.position + spaceShipSpeed * Time.fixedDeltaTime * new Vector3(joystick.Horizontal, joystick.Vertical * invertState, 0);
 
-            if (predictPos.x < -limitSpace.x || predictPos.x > limitSpace.x)
-            {
-                predictPos.x = transform.position.x;
-            }
-            if (predictPos.y < -limitSpace.y || predictPos.y > limitSpace.y)
-            {
-                predictPos.y = transform.position.y;
-            }
+            predictPos.x = Mathf.Clamp(predictPos.x, -limitSpace.x, limitSpace.x);
+            predictPos.y = Mathf.Clamp(predictPos.y, -limitSpace.y, limitSpace.y);
 
             transform.position = Vector2.MoveTowards(transform.position, predictPos, 1);
         }

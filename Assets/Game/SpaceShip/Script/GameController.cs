@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace SpaceShip
@@ -240,6 +241,12 @@ namespace SpaceShip
                     pauseButton.SetActive(!isPause);
                 });
             }
+        }
+
+        public void PressHomeButton()
+        {
+            // Load lại scene Lobby (Scene Lobby có index là 0)
+            SceneManager.LoadScene(0);
         }
 
         public void GameOver()
