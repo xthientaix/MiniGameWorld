@@ -4044,6 +4044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShip
       objectReference: {fileID: 0}
+    - target: {fileID: 3283755060717842842, guid: e1bb2115e3b9ec441ab5f7a1ce5b2be0, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3283755060717842843, guid: e1bb2115e3b9ec441ab5f7a1ce5b2be0, type: 3}
       propertyPath: m_RootOrder
       value: 4

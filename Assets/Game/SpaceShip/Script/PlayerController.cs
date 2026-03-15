@@ -12,7 +12,7 @@ namespace SpaceShip
         [Header("-----Skill-----")]
         [SerializeField] float skillDuration;
         [SerializeField] float InvertDuration;
-        [SerializeField] TextMeshProUGUI invertTimeText;
+        [SerializeField] TextMeshPro invertTimeText;
         float remainInvertTime;
 
         GameController gameController;
