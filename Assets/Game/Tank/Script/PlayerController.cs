@@ -44,9 +44,12 @@ namespace Tank
 
         private void OnEnable()
         {
-            currentHP = maxHP;
-            hpBar.fillAmount = 1f;
-            canMove = true;
+            // ResetPlayer();
+        }
+
+        private void OnDisable()
+        {
+            ResetPlayer();
         }
 
         private void Start()
@@ -197,6 +200,18 @@ namespace Tank
         {
             hpBar.transform.parent.gameObject.SetActive(false);
             hpBarVisible = false;
+        }
+
+        private void ResetPlayer()
+        {
+            spriteRenderer.DOKill();
+            spriteRenderer.color = originalColor;
+
+            currentHP = maxHP;
+            hpBar.fillAmount = 1f;
+            CancelInvoke(nameof(HideHPBar));
+            HideHPBar();
+            canMove = true;
         }
     }
 }

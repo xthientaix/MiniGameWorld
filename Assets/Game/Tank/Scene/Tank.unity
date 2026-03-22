@@ -2646,7 +2646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &394417669
 Transform:
   m_ObjectHideFlags: 0
@@ -2662,7 +2662,7 @@ Transform:
   - {fileID: 1791128478}
   - {fileID: 507527283}
   m_Father: {fileID: 830815488}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &394417670
 MonoBehaviour:
@@ -2888,7 +2888,7 @@ Transform:
   - {fileID: 1954988767}
   - {fileID: 1926708562}
   m_Father: {fileID: 830815488}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &411431798
 MonoBehaviour:
@@ -4343,7 +4343,7 @@ Transform:
   - {fileID: 2143439305}
   - {fileID: 293927771}
   m_Father: {fileID: 830815488}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &731698921
 MonoBehaviour:
@@ -4361,7 +4361,7 @@ MonoBehaviour:
   - {fileID: 2143439305}
   enemyPrefabs:
   - {fileID: 6265292020547423025, guid: 39e9fe6dbc38ce142a94b3e00fd363c1, type: 3}
-  enemyNumber: 02000000
+  enemyNumber: 03000000
   enemyNumberText:
   - {fileID: 1840887234}
   spawnAreas: []
@@ -4901,12 +4901,12 @@ Transform:
   - {fileID: 2140371650}
   - {fileID: 394859342}
   - {fileID: 2031113461}
-  - {fileID: 394417669}
-  - {fileID: 731698920}
   - {fileID: 1878706372}
   - {fileID: 411431797}
+  - {fileID: 394417669}
   - {fileID: 1794135900}
   - {fileID: 957099923}
+  - {fileID: 731698920}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5831,7 +5831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &957099923
 Transform:
   m_ObjectHideFlags: 0
@@ -5848,7 +5848,7 @@ Transform:
   - {fileID: 581672454}
   - {fileID: 1191601739}
   m_Father: {fileID: 830815488}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &957099924
 MonoBehaviour:
@@ -8123,15 +8123,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7034e1b94053b8545a1fffcff0c4467d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8233,14 +8233,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7034e1b94053b8545a1fffcff0c4467d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8349,14 +8349,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7034e1b94053b8545a1fffcff0c4467d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9163,7 +9163,7 @@ Transform:
   - {fileID: 8666129}
   - {fileID: 1959300253}
   m_Father: {fileID: 830815488}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1794135901
 MonoBehaviour:
@@ -9671,7 +9671,7 @@ Transform:
   - {fileID: 1830096644}
   - {fileID: 2058276594}
   m_Father: {fileID: 830815488}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1878706373
 MonoBehaviour:
@@ -9688,7 +9688,7 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 1830096644}
   enemyPrefabs:
-  - {fileID: 190012359878397081, guid: e8dde2ece5128634ca025b7ebb432d8f, type: 3}
+  - {fileID: 190012359878397081, guid: e89b066b43a334f44a164542045f1c5d, type: 3}
   enemyNumber: 06000000
   enemyNumberText:
   - {fileID: 345690247}
@@ -11417,6 +11417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: turret
       objectReference: {fileID: 0}
+    - target: {fileID: 5040012331498714445, guid: a0302078076942a42a101c6ab1bd4c0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6066435400966502480, guid: a0302078076942a42a101c6ab1bd4c0f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -11476,11 +11480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375438953830987544, guid: c59de58775d37ec47b200f624624ce5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.72
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 2375438953830987544, guid: c59de58775d37ec47b200f624624ce5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.84
+      value: -2.39
       objectReference: {fileID: 0}
     - target: {fileID: 2375438953830987544, guid: c59de58775d37ec47b200f624624ce5c, type: 3}
       propertyPath: m_LocalPosition.z

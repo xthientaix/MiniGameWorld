@@ -48,7 +48,8 @@ namespace Tank
         [SerializeField] AudioClip defeatSound;
         private AudioSource audioSource;
 
-        // tạo 1 delegate để truyền hàm returntopool của bullet vào . Mỗi lần load level thì gọi delegate để bullet về pool
+        // tạo 1 delegate để truyền hàm logic vào , dùng khi mỗi lần load level
+        //  +returntopool của bullet , để bullet về pool
         public static event Action OnLevelLoad;
 
         private void Awake()
@@ -254,13 +255,15 @@ namespace Tank
                 OnLevelLoad?.Invoke(); // Gọi delegate để trả bullet về pool
                 completePanel.SetActive(false);
                 startPanel.SetActive(true);
+
+                player.gameObject.SetActive(false);
                 player.SetPositionAndRotation(playerSpawnPosition.position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                player.gameObject.SetActive(true);
             }).OnComplete(() => FadeOut());
         }
 
         private void FadeOut()
         {
+            player.gameObject.SetActive(true);
             ChangeBackground();
             blackScreen.DOFade(0, 0.5f).SetEase(Ease.InCubic).SetUpdate(true).OnComplete(() =>
             {

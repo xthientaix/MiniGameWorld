@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/SpaceShip/Scenes/SpaceShip.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Game/Tank/Scene/Tank.unity
+    guid: fda706ddb1c4e894d81653a15c448b0a
   m_configObjects: {}
